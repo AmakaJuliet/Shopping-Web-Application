@@ -93,17 +93,17 @@ function findItem(id) {
 }
 
 //create a get endpont for getting list of shopping items
-app.get("/items", (req, res) => {
+server.get("/items", (req, res) => {
   return res.json(getItems())
 });
 
 //create a post endpoint for accepting form data and add it to the shopping list
-app.post("/add-item", function(req, res) {
+server.post("/add-item", function(req, res) {
     res.send('');
 });
 
 //create a get endpoint for display of a single item's name and price
-app.get("/items/:id", function(req, res) {
+server.get("/items/:id", function(req, res) {
   const id = req.params.id
 
   return res.json(findItem(id))

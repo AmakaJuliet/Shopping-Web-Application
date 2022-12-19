@@ -1,8 +1,9 @@
 const express = require("express");
-const app = express();
+const profile_router = require("./routes/profile")
 
-app.use(express.urlencoded({ extended:false }));
-app.use(express.json());
+const server = express();
+server.use(express.urlencoded({ extended:false }));
+server.use(express.json());
 
 const items = [
     {
@@ -108,6 +109,8 @@ app.get("/items/:id", function(req, res) {
   return res.json(findItem(id))
 });
 
-app.listen(8080, function() {
+server.use("/profile", profile_router);
+
+server.listen(8080, function() {
   console.log('Server is running...');
 });
